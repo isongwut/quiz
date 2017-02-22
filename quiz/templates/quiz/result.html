@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}" />
+<head><title> QUIZ RESULT </title></head>
+<body>
+<h1>{{topic.topic_text}}</h1> 
+<br><br>
+<h1>Your score is {{score}} in the {{questions}}</h1>
+<br><br>
+<a href="{% url 'quiz:answer' topic.id %}">See answer</a><br>
+<a href="{% url 'quiz:index' %}">Page home</a><br>
+<a href="{% url 'quiz:detail' topic.id %}">Test again?</a>
+</body>
+</html>

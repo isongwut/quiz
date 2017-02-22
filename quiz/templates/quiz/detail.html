@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}" />
+<head><title> QUIZ DETAIL </title></head>
+
+<body>
+<a href="{% url 'quiz:index' %}"><== Page home</a><br>
+<form action="{% url 'quiz:check_answers' topic.id %}" method="post">
+{% csrf_token %}
+{% for question in topic.question_set.all %}
+    <h3>{{ question.question_text }}</h3>
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="{{choice.id}}" value="{{choice.answer}}" />
+        <label>{{ choice.choice_text }}</label><br />
+    {% endfor %}
+    </ul>
+    <br>
+{% endfor %}
+    <input type="submit" class = "sumit_button" value="Submit Answers" />
+</form>
+</body>
+
+</html>
+
+
+

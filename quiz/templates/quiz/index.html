@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}" />
+<head><title>QUIZ TEST</title></head>
+<body>
+
+<h1><center>QUIZ TOPICS</h1></center>
+<br>
+{% if latest_topic_list %}
+    <ul>
+    {% for topic in latest_topic_list %}
+        <font size=4><center><li><a href="{% url 'quiz:detail' topic.id %}">{{ topic.topic_text }}</center></a></li></font><br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+
+</body>
+</html>

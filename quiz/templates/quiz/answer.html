@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}" />
+<head><title> QUIZ ANSWER </title></head>
+<body>
+<h1>{{topic.topic_text}}</h1> 
+ <table style="width:40%">
+  <center>
+  <tr>
+    <th>Questions</th>
+    <th>Answer</th>
+  </tr>
+{% for question in topic.question_set.all %}
+  <tr> 
+    <td><center>{{ question.question_text }}</td></center>
+    {% for choice in question.choice_set.all %} 
+    {% if choice.answer %}
+        <td><center>{{ choice.choice_text }}</center></td>
+    {% endif %}
+    {% endfor %}
+  </tr>
+{% endfor %}
+</table><br>
+<a href="{% url 'quiz:index' %}">Page home</a><br>
+<a href="{% url 'quiz:detail' topic.id %}">Test again?</a>
+<body>
+</html>

@@ -1,0 +1,31 @@
+body {
+    background-color: #FFCC99;
+}
+
+a{
+    text-decoration:none
+}
+
+table,th,td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+input.sumit_button{
+    background-color:#FF9900;
+    font-size: 24px;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+
+}
+
+input.sumit_button:hover {background-color: #3e8e41}
+
+input.sumit_button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+
